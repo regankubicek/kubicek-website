@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kubicek Psychological Center</title>
+  <meta name="description" content="Comprehensive psychological evaluations for adults seeking clarity around attention, mood, trauma, and complex mental health concerns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1a17;
+      --muted: #3f3a34;
+      --subtle: #5a544d;
+      --line: #e6e1d9;
+      --bg: #faf8f4;
+      --bg2: #f3efe8;
+      --card: #ffffff;
+      --gold: #b8872a;
+      --gold-mid: #d4a44c;
+      --gold-light: #f7eed8;
+      --dark: #131109;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+      --shadow-md: 0 8px 32px rgba(0,0,0,.09);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.11);
+      --max: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.75 'Jost', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(19, 17, 9, .94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      color: #fff;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: .03em;
+      font-weight: 600;
+    }
+
+    .brand-sub {
+      color: rgba(255,255,255,.5);
+      font-size: 11px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+      transition: color .2s ease;
+    }
+
+    nav a:hover { color: var(--gold-mid); }
+
+    .nav-cta {
+      padding: 10px 18px;
+      border: 1px solid rgba(212,164,76,.45);
+      border-radius: 999px;
+      color: var(--gold-mid) !important;
+    }
+
+    .hero {
+      padding: 96px 0 72px;
+      background: linear-gradient(180deg, #f9f6f0 0%, #faf8f4 100%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .eyebrow::before,
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .5;
+    }
+
+    .section-label::after { width: 24px; }
+
+    h1 {
+      margin: 0 0 24px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -.02em;
+      font-weight: 700;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .lead {
+      max-width: 600px;
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--subtle);
+      font-size: 13px;
+      letter-spacing: .04em;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .75;
+    }
+
+    .headshot-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .headshot-card {
+      position: relative;
+      width: min(420px, 100%);
+    }
+
+    .headshot-card::before {
+      content: '';
+      position: absolute;
+      inset: 22px -18px -18px 22px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      z-index: 0;
+    }
+
+    .headshot {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      background: #ddd;
+    }
+
+    .headshot-badge {
+      position: absolute;
+      left: -22px;
+      bottom: 28px;
+      z-index: 2;
+      background: rgba(19, 17, 9, .96);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .headshot-badge strong {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .headshot-badge small {
+      display: block;
+      margin-top: 4px;
+      color: var(--gold-mid);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .services-strip {
+      background: var(--dark);
+    }
+
+    .services-inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .service-item {
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.06);
+    }
+
+    .service-item:last-child { border-right: none; }
+
+    .service-dot {
+      width: 6px;
+      height: 6px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .8;
+    }
+
+    .service-label {
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section.alt {
+      background: var(--bg2);
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      margin: 0 0 16px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .section-header p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.8;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .card p,
+    .card li {
+      color: var(--ink);
+      font-size: 15.5px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin: 12px 0 0;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .process-step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      background: var(--gold-light);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+
+    .process-step h3 {
+      margin: 0 0 10px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 26px;
+    }
+
+    .process-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .pricing-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pricing-main {
+      background: linear-gradient(180deg, #ffffff 0%, #fbf8f2 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .pricing-side {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pricing-main h3 {
+      margin: 0 0 10px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 36px;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .pricing-side h3 {
+      margin: 0 0 12px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .price {
+      font-family: 'Jost', sans-serif;
+      font-size: 64px;
+      line-height: 1;
+      color: var(--ink);
+      margin: 18px 0 14px;
+      letter-spacing: .02em;
+      font-weight: 500;
+    }
+
+    .pricing-main p,
+    .pricing-side p,
+    .pricing-main li,
+    .pricing-side li {
+      color: var(--ink);
+      font-size: 15.5px;
+    }
+
+    .pricing-main ul,
+    .pricing-side ul {
+      margin: 16px 0 0;
+      padding-left: 18px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .about-photo {
+      background: linear-gradient(180deg, #e8dfd3 0%, #d7ccbb 100%);
+      min-height: 420px;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-copy {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-copy h3 {
+      margin: 0 0 14px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 34px;
+      line-height: 1.12;
+    }
+
+    .about-copy p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .contact-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .contact-intro {
+      margin-bottom: 22px;
+    }
+
+    .contact-intro h3 {
+      margin: 0 0 10px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 34px;
+    }
+
+    .contact-intro p {
+      margin: 0;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--subtle);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--bg);
+      color: var(--ink);
+      padding: 14px 16px;
+      font: 15px/1.5 'Jost', sans-serif;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--gold);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(184,135,42,.1);
+    }
+
+    textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      padding: 15px 28px;
+      font: 600 13px/1 'Jost', sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .btn:hover {
+      background: #2d2924;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 14px 26px;
+      border: 1.5px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      font: 500 13px/1 'Jost', sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: transform .2s ease, border-color .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .btn-ghost:hover {
+      transform: translateY(-1px);
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-light);
+    }
+
+    .form-submit {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 6px;
+    }
+
+    footer {
+      background: var(--dark);
+      padding: 48px 0 56px;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+    }
+
+    .footer-name {
+      color: #fff;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+    }
+
+    .footer-sub {
+      color: rgba(255,255,255,.42);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .footer-copy {
+      color: rgba(255,255,255,.24);
+      font-size: 12px;
+      letter-spacing: .05em;
+    }
+
+    @media (max-width: 980px) {
+      .hero-inner,
+      .pricing-shell,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-inner,
+      .grid-3,
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .headshot-wrap {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      nav { display: none; }
+
+      .hero {
+        padding-top: 68px;
+      }
+
+      .hero-inner {
+        gap: 44px;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-actions,
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .headshot-card::before { display: none; }
+      .headshot-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        white-space: nowrap;
+      }
+
+      .services-inner,
+      .grid-3,
+      .process-grid,
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .service-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+      }
+
+      .service-item:last-child {
+        border-bottom: none;
+      }
+
+      .contact-card,
+      .pricing-main,
+      .pricing-side,
+      .about-copy,
+      .card {
+        padding: 28px;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 32px));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets\img\LOGO.png" alt="Kubicek Psychological Center Logo" style="height:48px; width:auto;" />
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Fees</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Request Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">Adult Psychological Evaluation</div>
+        <h1>
+          Clear Answers.
+          <span>Thoughtful Evaluation.</span>
+          Real Direction.
+        </h1>
+        <p class="lead">
+          Comprehensive psychological evaluations for adults seeking clarity around attention, mood, trauma, and complex mental health concerns.
+          If you have been feeling stuck, misunderstood, or unsure what is really going on, this process is designed to provide clear answers and practical direction so you can move forward with confidence.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Request an Appointment</a>
+          <a href="#services" class="btn-ghost">Learn More</a>
+        </div>
+        <div class="hero-meta">
+          <span>Adults only</span>
+          <span>Comprehensive evaluation</span>
+          <span>Self-pay available</span>
+        </div>
+      </div>
+
+      <div class="headshot-wrap">
+        <div class="headshot-card">
+          <img class="headshot" src="assets\img\headshot.png" alt="Dr. Christina Kubicek" />
+          <div class="headshot-badge">
+            <strong>Christina Kubicek, Psy.D.</strong>
+            <small>Licensed Psychologist</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-strip">
+    <div class="services-inner container">
+      <div class="service-item"><div class="service-dot"></div><div class="service-label">ADHD &amp; Attention</div></div>
+      <div class="service-item"><div class="service-dot"></div><div class="service-label">Anxiety &amp; Mood</div></div>
+      <div class="service-item"><div class="service-dot"></div><div class="service-label">Trauma &amp; Stress</div></div>
+      <div class="service-item"><div class="service-dot"></div><div class="service-label">Personality Patterns</div></div>
+      <div class="service-item"><div class="service-dot"></div><div class="service-label">Diagnostic Clarification</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Who this is for</div>
+        <h2>A thorough evaluation for adults who want real clarity</h2>
+        <p>
+          This practice is designed for adults who want a careful, thoughtful assessment rather than a quick answer or a one-size-fits-all diagnosis. This evaluation is best suited for individuals seeking a comprehensive understanding rather than a brief screening.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>This may be helpful for you if…</h3>
+          <ul>
+            <li>You have been wondering whether ADHD could be part of what you are experiencing.</li>
+            <li>You notice overlapping concerns like anxiety, mood changes, trauma, or feeling overwhelmed.</li>
+            <li>You have tried therapy or medication but still feel like something is missing.</li>
+            <li>You are looking for a clearer understanding of yourself and practical next steps.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>What makes this different</h3>
+          <p>
+            Symptoms like distractibility, overwhelm, low motivation, restlessness, and inconsistent follow-through can come from many different sources. This process is designed to understand why symptoms are happening, not just whether a label fits. A core focus is differentiating between ADHD, anxiety, mood, trauma, and personality patterns when symptoms overlap, so the conclusions are accurate and useful.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>What to expect from this process</h3>
+          <p>
+            This is not a fast checklist or same-day answer. Instead, the evaluation is designed to take a careful, thoughtful look at your experiences so the conclusions are accurate and genuinely useful for guiding next steps. When appropriate, documentation can support academic, work, or testing accommodations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">The process</div>
+        <h2>Structured, clear, and designed to be useful</h2>
+        <p>
+          The evaluation process is designed to balance depth with practicality so you leave with a clearer understanding of what is going on and what to do next.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <h3>Brief screener</h3>
+          <p>A short initial review helps determine whether the evaluation is a good fit before scheduling.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <h3>Interview and testing</h3>
+          <p>The clinical interview and testing are typically completed in one day so the process feels efficient and streamlined.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <h3>Scoring and integration</h3>
+          <p>After the appointment, test data, clinical history, and observed patterns are carefully reviewed and integrated into the full picture.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <h3>Report delivery</h3>
+          <p>A comprehensive written report is typically completed within 3 to 4 weeks and includes diagnostic impressions and practical recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Fees</div>
+        <h2>Simple, transparent pricing</h2>
+      </div>
+
+      <div style="max-width:760px; margin: 0 auto 28px; text-align:center;">
+        <p style="margin:0; color: var(--ink); font-size:20px; line-height:1.8; font-weight:600;">
+          The evaluation is offered as a self-pay service with straightforward pricing and a clear process from the beginning.
+        </p>
+        <p style="margin:12px auto 0; max-width:720px; font-size:20px; line-height:1.8; color: var(--ink); font-weight:600;">
+          This service is intended for clinical and personal use and is <u>not</u> designed for forensic or disability determinations.
+        </p>
+      </div>
+
+      <div class="pricing-shell">
+        <div class="pricing-main">
+          <h3>Comprehensive Psychological Evaluation</h3>
+          <div class="price" style="font-family: 'Jost', sans-serif; letter-spacing: .02em;">$1,000</div>
+          <p>
+            Self-pay services are not automatically submitted to insurance, which allows for greater privacy and control over how your information is shared.
+          </p>
+          <p>
+            This fee includes the clinical interview, testing session, scoring, interpretation, and a comprehensive written report with diagnostic impressions and individualized recommendations.
+          </p>
+          
+        </div>
+
+        <div class="pricing-side">
+          <h3>Payment details</h3>
+          <ul>
+            <li>Self-pay service with simple, transparent pricing</li>
+            <li>50% due at scheduling</li>
+            <li>50% due prior to the interview and testing day</li>
+            <li>Third-party financing (e.g., CareCredit) may be used independently</li>
+          </ul>
+        </div>
+
+        <div class="pricing-side">
+          <h3>Insurance Reimbursement</h3>
+          <p>
+            A superbill can be provided upon request for potential out-of-network reimbursement. A superbill is a detailed receipt that you may submit to your insurance company.
+          </p>
+          <p>
+            <span style="color: var(--gold); font-weight: 600;">Many plans reimburse a portion of the cost</span> for out-of-network services. Reimbursement depends on your individual plan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">About</div>
+        <h2>Thoughtful evaluation with a practical focus</h2>
+      </div>
+
+      <div class="about-grid">
+        <img class="about-photo" src="assets\img\headshot.png" alt="Dr. Christina Kubicek" />
+        <div class="about-copy">
+          <h3>About Dr. Kubicek</h3>
+          <p>
+            Christina Kubicek, Psy.D., is a licensed psychologist specializing in comprehensive psychological assessment for adults. Her work centers on diagnostic clarification in complex or overlapping presentations, including attention and executive functioning concerns, anxiety and mood disorders, trauma-related patterns, and personality dynamics.
+          </p>
+          <p>
+            She has extensive experience conducting full-battery evaluations in outpatient settings, integrating clinical interview, evidence-based testing, behavioral observations, and collateral information when available. Her assessments emphasize careful differential diagnosis, particularly distinguishing between ADHD, anxiety, mood disorders, trauma effects, and personality patterns when symptoms overlap.
+          </p>
+          <p>
+            Dr. Kubicek’s approach is both thorough and practical. She prioritizes clear, readable reports that explain not just what the findings are, but why they fit together and how they show up in day-to-day functioning. Recommendations are tailored to be actionable, including therapy approaches, skills-based strategies, and coordination with medication providers when appropriate.
+          </p>
+          <p>
+            Her style is warm, direct, and grounded. The goal is to leave you with a coherent understanding of your strengths and challenges, and a plan that actually makes sense for your life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Request an appointment</div>
+        <h2>Begin the process</h2>
+        <p>
+          Complete a brief inquiry form to start the screening process. If the evaluation appears to be a good fit, the next step is a brief consultation and scheduling through the client portal.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-intro">
+          <p style="margin-bottom:14px; color: var(--ink); font-size:19px; line-height:1.8; font-weight:600;">
+            You are welcome to reach out directly by email at <strong><a href="mailto:info@kubicekpsychologicalcenter.com">info@kubicekpsychologicalcenter.com</a></strong> or by phone at <strong><a href="tel:2027431350">202-743-1350</a></strong> if you prefer.
+          </p>
+          <h3>Start with a brief pre-screening form</h3>
+          <p>
+            The first step is a short pre-screening form to better understand your goals and determine whether this evaluation is the right fit. If appropriate, the next step includes a brief consultation and secure portal setup for consent forms, intake paperwork, scheduling, and payment.
+          </p>
+        </div>
+
+        <div style="margin-top:20px;">
+          <a href="YOUR_SIMPLEPRACTICE_FORM_LINK" target="_blank" class="btn">Complete Pre-Screening Form</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <img src="LOGO.png" alt="Kubicek Psychological Center Logo" style="height:60px; width:auto;" />
+      <div class="footer-sub">Adult Psychological Evaluation</div>
+      <div class="footer-copy">© Kubicek Psychological Center. All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
